@@ -1,0 +1,74 @@
+[
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/funk1.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk1.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk1.cpp",
+  "output": "CMakeFiles/ASan.dir/funk1.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/funk2.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk2.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk2.cpp",
+  "output": "CMakeFiles/ASan.dir/funk2.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/funk3.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk3.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk3.cpp",
+  "output": "CMakeFiles/ASan.dir/funk3.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/funk4.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk4.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk4.cpp",
+  "output": "CMakeFiles/ASan.dir/funk4.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/funk5.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk5.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk5.cpp",
+  "output": "CMakeFiles/ASan.dir/funk5.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/solution.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/solution.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/solution.cpp",
+  "output": "CMakeFiles/ASan.dir/solution.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/solution.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/solution.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/solution.cpp",
+  "output": "CMakeFiles/TSan.dir/solution.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/funk1.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk1.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk1.cpp",
+  "output": "CMakeFiles/TSan.dir/funk1.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/funk2.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk2.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk2.cpp",
+  "output": "CMakeFiles/TSan.dir/funk2.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/funk3.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk3.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk3.cpp",
+  "output": "CMakeFiles/TSan.dir/funk3.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/funk4.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk4.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk4.cpp",
+  "output": "CMakeFiles/TSan.dir/funk4.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/funk5.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk5.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_7/OneSolution/funk5.cpp",
+  "output": "CMakeFiles/TSan.dir/funk5.cpp.o"
+}
+]

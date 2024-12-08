@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/TSan.dir/solution.cpp.o CMakeFiles/TSan.dir/funk1.cpp.o CMakeFiles/TSan.dir/funk2.cpp.o CMakeFiles/TSan.dir/funk3.cpp.o CMakeFiles/TSan.dir/funk4.cpp.o CMakeFiles/TSan.dir/funk5.cpp.o -o TSan  -fsanitize=thread 

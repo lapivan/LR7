@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/ASan.dir/funk1.cpp.o CMakeFiles/ASan.dir/funk2.cpp.o CMakeFiles/ASan.dir/funk3.cpp.o CMakeFiles/ASan.dir/funk4.cpp.o CMakeFiles/ASan.dir/funk5.cpp.o CMakeFiles/ASan.dir/solution.cpp.o -o ASan  -fsanitize=address 

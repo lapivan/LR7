@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/funk2.dir/funk2.cpp.o -o funk2  -fsanitize=thread 
