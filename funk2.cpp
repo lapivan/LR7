@@ -317,30 +317,45 @@ void todirectcode(char* a, int len)
         return;
     }
 }
-long double tonum(char* a, int len) //O(n)
+void bintodec(std::string &dop) 
 {
-    long double sum = 0;
-    int ind = len-1;
-    long double i = 2;
-    long double n = 0;
-    long double buf = 0;
-    while(ind != 0) //O(n)
+    std::string dec = "0"; 
+    for (char bit : dop) 
     {
-        if(a[ind] == '1')
+        std::string bufer = dec;
+        int perenos = 0;
+        for (int j = bufer.length() - 1; j >= 0; --j) 
         {
-            buf = 1;
+            int digit = (bufer[j] - '0') * 2 + perenos;
+            bufer[j] = (digit % 10) + '0';
+            perenos= digit / 10; 
         }
-        else
+        while (perenos) 
         {
-            buf = 0;
+            bufer.insert(bufer.begin(), (perenos % 10) + '0');
+            perenos /= 10;
         }
-        sum += buf * pow(i, n);
-        n++;
-        ind--;
+        dec = bufer;
+        if (bit == '1') 
+        {
+            perenos = 1; 
+            std::string buferres = dec;
+
+            for (int j = buferres.length() - 1; j >= 0; --j) 
+            {
+                int digit = (buferres[j] - '0') + perenos;
+                buferres[j] = (digit % 10) + '0';
+                perenos = digit / 10;
+            }
+            while (perenos) 
+            {
+                buferres.insert(buferres.begin(), (perenos % 10) + '0');
+                perenos /= 10;
+            }
+
+            dec = buferres;
+        }
     }
-    if(a[0] == '1') //O(1)
-    {
-        sum *= -1;
-    }
-    return sum;
+    
+    dop = dec;
 }

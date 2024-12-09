@@ -438,12 +438,20 @@ void mainprogramm2()
     std::cout <<  std::endl;
     todirectcode(dop, lcode1);
     std::cout << "Прямой код суммы чисел: " << std::endl;
+    int size = 0;
     for(int i = 0; i < lcode2; i++)
     {
-        std::cout << dop[i]; //O(n)
+        std::cout << dop[i];
+        size++;
     }
     std::cout <<  std::endl;
-    long double sum = tonum(dop, lcode1);
+    std::string sum;
+    sum.resize(size);
+    for(int i = 0; i < size; i++)
+    {
+        sum[i] = dop[i];
+    }
+    bintodec(sum);
     std::cout << "Сумма чисел в естественной форме: " << sum << std::endl;
     delete[] code1;
     code1 = nullptr;
@@ -518,10 +526,10 @@ void mainprogramm3()
             array[i][1] = buferstr;
             j1++;
         }
-        if(i == osn - 1) //otladka O(1)
-        {
-            std::cout << array[i][1] << std::endl;
-        }
+        //if(i == osn - 1) //otladka O(1)
+        //{
+            //std::cout << array[i][1] << std::endl;
+        //}
     }
     std::cout << "Введите первое число. Каждую цифру числа разделяйте пробелами: " << std::endl;
     std::string num1;

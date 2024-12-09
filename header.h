@@ -13,7 +13,7 @@ char* convert10to2(int a, int counter);
 void converttodop(char* a);
 char* sumdopcode(char* a, char* b, int size);
 void todirectcode(char* a, int len);
-long double tonum(char* a, int len);
+void bintodec(std::string &dop);
 int numberword(std::string mystr, int length);
 bool whatisbigger(std::string num1, std::string num2, int **&a, int **&b, bool num1otr, bool num2otr);
 bool absbigger(std::string num1, std::string num2, int **&a, int **&b);
