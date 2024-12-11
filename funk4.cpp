@@ -261,9 +261,9 @@ bool to107(std::string num) //O(n) n -size num
     std::string buferstring = num;
     std::string last;
     
-    while((int)num.size() >= 3) //O(n)
+    while((int)num.size() >= 4) //O(n)
     {
-        if((int)num.size() == 3 && num != "963" && num != "856" && num != "749" && num != "642" && num != "535" && num != "428" && num != "321" && num != "214" && num != "107")
+        if((int)num.size() == 3 && (num != "963" || num != "856" || num != "749" || num != "642" || num != "535" || num != "428" || num != "321" || num != "214" || num != "107" || num != "1177" || num != "0" || num != "1284" || num != "1498" || num != "1605" || num != "1819" || num == "1926" || num != "2247" || num != "2568" || num != "2889"))
         {
             to107 = false;
             return to107;
@@ -272,7 +272,7 @@ bool to107(std::string num) //O(n) n -size num
         buferstring.pop_back();
         last = num.back();
         std::string last1 = last;   //alwfys as first last
-        if(num == "963" || num == "856" || num == "749" || num == "642" || num == "535" || num == "428" || num == "321" || num == "214" || num == "107")
+        if(num == "963" || num == "856" || num == "749" || num == "642" || num == "535" || num == "428" || num == "321" || num == "214" || num == "107" || num == "1177" || num == "0" || num == "1284" || num == "1498" || num == "1605" || num == "1819" || num == "1926" || num == "2247" || num == "2568" || num == "2889")
         {
             to107 = true;
             return to107;
@@ -288,7 +288,7 @@ bool to107(std::string num) //O(n) n -size num
         }
         num = sum1(buferstring, last);
     }
-    if(num == "963" || num == "856" || num == "749" || num == "642" || num == "535" || num == "428" || num == "321" || num == "214" || num == "107")
+    if(num == "963" || num == "856" || num == "749" || num == "642" || num == "535" || num == "428" || num == "321" || num == "214" || num == "107" || num == "1177" || num == "0" || num == "1284" || num == "1498" || num == "1605" || num == "1819" || num == "1926" || num == "2247" || num == "2568" || num == "2889")
         {
             to107 = true;
             return to107;

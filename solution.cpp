@@ -217,7 +217,36 @@ void mainprogramm1() //O(n*m)
         }
     }
     std::cout << "Вы ввели: " << inputcode << std::endl;
-
+    bool allnull = true;
+    for(int i = 1; i < (int)inputcode.size(); i++)
+    {
+        if (inputcode[i] != '0')
+        {
+            allnull = false;
+        }
+    }
+    if (allnull == true)
+    {
+        std::cout << "Прямой код числа не существует "<< std::endl;
+        std::cout << std::endl <<"Введите 0 для возврата в главное меню: ";
+    int k;
+    k = getValue();
+    bool check = 0;
+    while(check == 0) //O(n)
+    {
+    if (k == 0)
+    {
+        system("clear");
+        menu();
+        check = 1;
+    }
+    else
+    {
+        std::cout << "Введите повторно: ";
+        k = getValue(); 
+    }
+    }   
+    }
     if(inputcode[0] == '0')  //O(1)
     {
         std::cout << "Прямой код числа: "<< inputcode;
@@ -760,7 +789,6 @@ void mainprogramm3() //O(n*n)
         if(b[2][i] == -1)
         {
             std::cout << "Данной цифры в системе счисления с основанием " << osn << " не существует " << std::endl;
-            goto start;
         }
     }
     oneisbigger = whatisbigger(num1, num2, a, b, num1otr, num2otr);

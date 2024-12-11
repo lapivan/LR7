@@ -101,7 +101,7 @@ bool whatisbigger(std::string num1, std::string num2, int **&a, int **&b, bool n
         if(a[2][it] == b[2][it])
         {
             it++;
-            if(it == std::min((int)num1.size(), (int)num1.size()))
+            if(it == std::min(numw1, numw2))
             {
                 oneisbigger =  0;
                 break;
@@ -149,7 +149,7 @@ bool absbigger(std::string num1, std::string num2, int **&a, int **&b)
         if(a[2][it] == b[2][it])
         {
             it++;
-            if(it == std::min((int)num1.size(), (int)num1.size()))
+            if(it == std::min(numw1, numw2))
             {
                 oneabsbigger =  0;
                 break;
