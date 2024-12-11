@@ -318,7 +318,7 @@ void mainprogramm1() //O(n*m)
     }
     }
 }
-void mainprogramm2() 
+void mainprogramm2() //O(n)
 {
     system("clear");
     std::cin.clear();
@@ -332,7 +332,7 @@ void mainprogramm2()
         for(int i = 0; i < (int)num1.length(); i++)
         {
 //O(m m num sumbols)
-            if(num1[i] != '0' && num1[i] != '1' && num1[i] != '2' && num1[i] != '3' && num1[i] != '4' && num1[i] != '5' && num1[i] != '6' && num1[i] != '7' && num1[i] != '8' && num1[i] != '9')
+            if(num1[i] != '0' && num1[i] != '1' && num1[i] != '2' && num1[i] != '3' && num1[i] != '4' && num1[i] != '5' && num1[i] != '6' && num1[i] != '7' && num1[i] != '8' && num1[i] != '9'&& num1[i] != '-')
             {
                 std::cout << "Введите повторно: ";
                 break;
@@ -353,7 +353,7 @@ void mainprogramm2()
         for(int i = 0; i < (int)num2.length(); i++)
         {
             //O(m m num sumbols)
-            if(num2[i] != '0' && num2[i] != '1' && num2[i] != '2' && num2[i] != '3' && num2[i] != '4' && num2[i] != '5' && num2[i] != '6' && num2[i] != '7' && num2[i] != '8' && num2[i] != '9')
+            if(num2[i] != '0' && num2[i] != '1' && num2[i] != '2' && num2[i] != '3' && num2[i] != '4' && num2[i] != '5' && num2[i] != '6' && num2[i] != '7' && num2[i] != '8' && num2[i] != '9' && num2[i] != '-')
             {
                 std::cout << "Введите повторно: ";
                 break;
@@ -415,8 +415,8 @@ void mainprogramm2()
         std::cout << code2[i]; //O(n)
     }
     std::cout <<  std::endl;
-    converttodop(code1);
-    converttodop(code2);
+    converttodop(code1, lcode1);
+    converttodop(code2, lcode1);
     std::cout << "Дополнительнй код первого числа: " << std::endl;
     for(int i = 0; i < lcode1; i++)
     {
@@ -451,8 +451,17 @@ void mainprogramm2()
     {
         sum[i] = dop[i];
     }
+    bool minus = 0;
+    if(sum[0] == '1')
+    {
+        sum[0] = '0';
+        minus = 1;
+    }
     bintodec(sum);
+    if(minus == 0)
     std::cout << "Сумма чисел в естественной форме: " << sum << std::endl;
+    else
+    std::cout << "Сумма чисел в естественной форме: -" << sum << std::endl;
     delete[] code1;
     code1 = nullptr;
     delete[] code2;
@@ -478,7 +487,7 @@ void mainprogramm2()
     }
     }
 }
-void mainprogramm3() 
+void mainprogramm3() //O(n*n)
 {
     system("clear");
     std::cin.clear();
@@ -508,16 +517,15 @@ void mainprogramm3()
     int j1 = 0;
     for (int i = 0; i < osn; i++)  //O(n*m)
     {
-
+        std::string buferstr;
         if (i < 10)
         {
-        array[i][1] = std::to_string(i);
+            array[i][1] = std::to_string(i);
         } 
         else 
-        {
-            
+        {     
             int index = j1;
-            std::string buferstr;
+            
             while (index >= 0) //O(m)
             {
                 buferstr = char('A' + (index % 26)) + buferstr;
@@ -526,11 +534,12 @@ void mainprogramm3()
             array[i][1] = buferstr;
             j1++;
         }
-        //if(i == osn - 1) //otladka O(1)
-        //{
-            //std::cout << array[i][1] << std::endl;
-        //}
+        // if(i == osn - 1) //otladka O(1)
+        // {
+        //     max = i;
+        // }
     }
+    start:
     std::cout << "Введите первое число. Каждую цифру числа разделяйте пробелами: " << std::endl;
     std::string num1;
     bool checkinput = false;
@@ -579,6 +588,7 @@ void mainprogramm3()
                 }
                 countlet = 0;
             }
+            
         } 
     }
     bool num1otr = 0;
@@ -665,8 +675,9 @@ void mainprogramm3()
     }
     amassive(num1, a, 0, num1.size());
     amassive(num2, b, 0, num2.size());
-    for(int i = 0; i < (int)num1.size(); i++) //O(n * (m + p))  n - len num1   m - len buf   p — num el array.
+    for(int i = 0; i < numw1; i++) //O(n * (m + p))  n - len num1   m - len buf   p — num el array. IT WAS i < (int)num1.size();
     {
+        a[2][i] = -1;
         if(i == numw1)
         {
             break;
@@ -700,7 +711,15 @@ void mainprogramm3()
             }
         }
     }
-    for(int i = 0; i < (int)num2.size(); i++) //O(n * (m + p))  n - len num1   m - len buf   p — num el array.
+    for(int i = 0; i < numw1; i++) //O(n)
+    {
+        if(a[2][i] == -1)
+        {
+            std::cout << "Данной цифры в системе счисления с основанием " << osn << " не существует " << std::endl;
+            goto start;
+        }
+    }
+    for(int i = 0; i < numw2; i++) //O(n * (m + p))  n - len num1   m - len buf   p — num el array.
     {
         if(i == numw2)
         {
@@ -711,6 +730,7 @@ void mainprogramm3()
         int j = 0;
         for(int k = b[1][i]; k<b[1][i] + b[0][i]; k++) //O(m)
         {
+            b[2][i] = -1;
             if(buf == " ")
             {
                 break;
@@ -732,7 +752,15 @@ void mainprogramm3()
             {
                 b[2][i] = std::stoi(array[k][0]); //O(m) m - len buf
                 break;
-            }
+            }           
+        }
+    }
+    for(int i = 0; i < numw2; i++) //O(n)
+    {
+        if(b[2][i] == -1)
+        {
+            std::cout << "Данной цифры в системе счисления с основанием " << osn << " не существует " << std::endl;
+            goto start;
         }
     }
     oneisbigger = whatisbigger(num1, num2, a, b, num1otr, num2otr);
@@ -758,14 +786,14 @@ void mainprogramm3()
         std::string summa = diff(b, a, numw2, numw1, osn, array);
         std::cout << summa << std::endl;
     }
-     if(oneisbigger == 1 && num1otr == 1 && num2otr == 1)
+     if(oneisbigger == 0 && oneabsbigger == 1 && num1otr == 1 && num2otr == 1)
     {
         std::string summa = sum(a, b, numw1, numw2, osn, array);
         std::cout<< '-' << summa << std::endl;
     }
-    if(oneisbigger == 0 && num1otr == 1 && num2otr == 1)
+    if(oneisbigger == 1 && oneabsbigger == 0 && num1otr == 1 && num2otr == 1)
     {
-        std::string summa = sum(a, b, numw1, numw2, osn, array);
+        std::string summa = sum(b, a, numw2, numw1, osn, array);
         std::cout<< '-' << summa << std::endl;
     }
     if(oneisbigger == 1 && num1otr == 0 && num2otr == 1 && oneabsbigger == 0)
@@ -852,15 +880,15 @@ void mainprogramm3()
     }
     if(oneisbigger == 0 && num1otr == 1 && num2otr == 0 && oneabsbigger == 0)
     {
-        std::string differ = sum(a, b, numw1, numw2, osn, array);
+        std::string differ = sum(b, a, numw2, numw1, osn, array);
         std::cout<< '-' << differ << std::endl;
     }
-    if(oneisbigger == 1 && num1otr == 1 && num2otr == 1)
+    if(oneisbigger == 1 && oneabsbigger == 0 && num1otr == 1 && num2otr == 1)
     {
         std::string differ = diff(b, a, numw2, numw1, osn, array);
         std::cout << differ << std::endl;
     }
-    if(oneisbigger == 0 && num1otr == 1 && num2otr == 1)
+    if(oneisbigger == 0 && oneabsbigger == 1 && num1otr == 1 && num2otr == 1)
     {
         std::string differ = diff(a, b, numw1, numw2, osn, array);
         std::cout <<'-' << differ << std::endl;
@@ -872,7 +900,7 @@ void mainprogramm3()
     }
     if(oneisbigger == 0 && num1otr == 1 && num2otr == 0 && oneabsbigger == 1)
     {
-        std::string summa = sum(b, a, numw2, numw1, osn, array);
+        std::string summa = sum(a, b, numw1, numw2, osn, array);
         std::cout << '-' << summa << std::endl;
     }
     for (int i = 0; i < osn; ++i) 
@@ -915,7 +943,7 @@ void mainprogramm3()
     }
     }
 }
-void mainprogramm4()
+void mainprogramm4() //O(n*n)
 {
     system("clear");
     std::cin.clear();
@@ -994,7 +1022,7 @@ void mainprogramm4()
     }
     }
 }
-void mainprogramm5() 
+void mainprogramm5() //O(n)
 {
     system("clear");
     std::cin.clear();

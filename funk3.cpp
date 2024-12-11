@@ -26,6 +26,13 @@ int numberword = 0;
 bool whatisbigger(std::string num1, std::string num2, int **&a, int **&b, bool num1otr, bool num2otr)
 {
     bool oneisbigger = 0;
+    int numw1 = numberword(num1, (int)num1.size());
+    int numw2 = numberword(num2, (int)num2.size());
+    bool bothotr = 0;
+    if(num1otr == 1 && num2otr == 1)
+    {
+        bothotr = 1;
+    }
     if(num1otr == 1 && num2otr != 1)
     {
         oneisbigger = 0;
@@ -41,22 +48,39 @@ bool whatisbigger(std::string num1, std::string num2, int **&a, int **&b, bool n
             oneisbigger = 0;
             return oneisbigger;
         }
-    if(numberword(num1, (int)num1.size()) > numberword(num2, (int)num2.size()))
+    if(numw1 > numw2)
     {
         oneisbigger = 1;
+        if(bothotr == 1)
+            {
+                if(oneisbigger == 1)
+                {
+                    oneisbigger = 0;
+                }
+                else
+                {
+                    oneisbigger = 1;
+                }
+        // !oneisbigger;
+            }
         return oneisbigger;
     }
-    if(numberword(num1, (int)num1.size()) < numberword(num2, (int)num2.size()) && num1otr!= 1 && num2otr != 1)
+    if(numw1 < numw2)
     {
         oneisbigger = 0;
+         if(bothotr == 1)
+            {
+                if(oneisbigger == 1)
+                {
+                    oneisbigger = 0;
+                }
+                else
+                {
+                    oneisbigger = 1;
+                }
+        // !oneisbigger;
+            }
         return oneisbigger;
-    }
-    bool bothotr = 0;
-    if(num1otr == 1 && num2otr == 1)
-    {
-        num1.erase(0, 1);
-        num2.erase(0, 1);
-        bothotr = 1;
     }
     bool exit  = 0;
     int  it = 0;
@@ -77,20 +101,14 @@ bool whatisbigger(std::string num1, std::string num2, int **&a, int **&b, bool n
         if(a[2][it] == b[2][it])
         {
             it++;
+            if(it == std::min((int)num1.size(), (int)num1.size()))
+            {
+                oneisbigger =  0;
+                break;
+            }
         }
     }
-    if(bothotr == 1)
-    {
-        if(oneisbigger == 1)
-        {
-            oneisbigger = 0;
-        }
-        else
-        {
-            oneisbigger = 1;
-        }
-        // !oneisbigger;
-    }
+    
     return oneisbigger;
 }
 bool absbigger(std::string num1, std::string num2, int **&a, int **&b)
@@ -100,12 +118,14 @@ bool absbigger(std::string num1, std::string num2, int **&a, int **&b)
     num1.erase(0, 1);
     if(num2.front() == '-')
     num2.erase(0, 1);
-    if(numberword(num1, (int)num1.size()) > numberword(num2, (int)num2.size()))
+    int numw1 = numberword(num1, (int)num1.size());
+    int numw2 = numberword(num2, (int)num2.size());
+    if(numw1 > numw2)
     {
         oneabsbigger = 1;
         return oneabsbigger;
     }
-    if(numberword(num1, (int)num1.size()) < numberword(num2, (int)num2.size()))
+    if(numw1 < numw2)
     {
         oneabsbigger = 0;
         return oneabsbigger;
@@ -129,6 +149,11 @@ bool absbigger(std::string num1, std::string num2, int **&a, int **&b)
         if(a[2][it] == b[2][it])
         {
             it++;
+            if(it == std::min((int)num1.size(), (int)num1.size()))
+            {
+                oneabsbigger =  0;
+                break;
+            }
         }
     }
     return oneabsbigger;
@@ -170,16 +195,28 @@ int countlet{};
         }
     } 
 }
-std::string sum(int** a, int** b, int numw1, int numw2, int osn, std::string** array) //O(max(numw1, numw2) * osn)
+std::string sum(int** a, int** b, int numw1, int numw2, int osn, std::string** array)  //O(n)
 {
     std::string space = " ";
     std::string tmp;
     std::string result;
     bool prom1check = 0;
     int j = 0;
-    for(int i = std::max(numw1, numw2) - 1; i>=0; i--) //O(max(num1, num2))
+    int prom{};
+    for(int i = std::max(numw1, numw2) - 1; i>=0; i--) //O(n)
     {
-        int prom = a[2][numw1 - 1 -  j] + b[2][numw2 - 1 - j];
+        if(numw2 - 1 - j < 0)
+        {
+            prom = a[2][numw1 - 1 -  j] + 0;
+        }
+        else if(numw1 - 1 - j < 0)
+        {
+            prom = b[2][numw2 - 1 - j] + 0;
+        }
+        else
+        {
+            prom = a[2][numw1 - 1 -  j] + b[2][numw2 - 1 - j];
+        }
         if((numw1 - 1 -  j) < 0 || (numw2 - 1 - j) < 0)
         {
             if(numw1 > numw2)
@@ -206,7 +243,7 @@ std::string sum(int** a, int** b, int numw1, int numw2, int osn, std::string** a
                 prom -= osn;
             }
         }
-        for(int i = 0; i < osn; i++) //O(m) m-str len
+        for(int i = 0; i < osn; i++) //O(n)
         {
             if(std::to_string(prom) == array[i][0])
             {
@@ -220,9 +257,9 @@ std::string sum(int** a, int** b, int numw1, int numw2, int osn, std::string** a
         {
             if(prom1check == 1)
                 {
-                    for(int i = 0; i < osn; i++)
+                    for(int i = 0; i < osn; i++) //O(n)
                     {
-                        if(std::to_string(prom1) == array[i][0]) // O(m) m - str len
+                        if(std::to_string(prom1) == array[i][0])
                         {
                             tmp  =  space + array[i][1] + result;
                             result = tmp;
@@ -235,16 +272,28 @@ std::string sum(int** a, int** b, int numw1, int numw2, int osn, std::string** a
     }
     return result;
 }
-std::string diff(int** a, int** b, int numw1, int numw2, int osn, std::string** array) //O(max(numw1, numw2) * osn)
+std::string diff(int** a, int** b, int numw1, int numw2, int osn, std::string** array) //O(n)
 {
     std::string result;
     std::string space = " ";
     std::string tmp;
     bool prom1check = 0;
     int j = 0;
-    for(int i = std::max(numw1, numw2) - 1; i>=0; i--) //O(max(num1, num2))
+    int prom{};
+    for(int i = std::max(numw1, numw2) - 1; i>=0; i--) //O(n)
     {
-        int prom = a[2][numw1 - 1 -  j] - b[2][numw2 - 1 - j];
+        if(numw2 - 1 - j < 0)
+        {
+            prom = a[2][numw1 - 1 -  j] - 0;
+        }
+        else if(numw1 - 1 - j < 0)
+        {
+            prom = b[2][numw2 - 1 - j] - 0;
+        }
+        else
+        {
+            prom = a[2][numw1 - 1 -  j] - b[2][numw2 - 1 - j];
+        }
         if((numw1 - 1 -  j) < 0 || (numw2 - 1 - j) < 0)
         {
             if(numw1 > numw2)
@@ -271,7 +320,7 @@ std::string diff(int** a, int** b, int numw1, int numw2, int osn, std::string** 
                 prom += osn;
             }
         }
-        for(int i = 0; i < osn; i++) //O(m) m-str len
+        for(int i = 0; i < osn; i++) //O(n)
         {
             if(std::to_string(prom) == array[i][0])
             {
@@ -284,9 +333,9 @@ std::string diff(int** a, int** b, int numw1, int numw2, int osn, std::string** 
         {
             if(prom1check == 1)
                 {
-                    for(int i = 0; i < osn; i++)
+                    for(int i = 0; i < osn; i++) //O(n)
                     {
-                        if(std::to_string(prom1) == array[i][0]) // O(m) m - str len
+                        if(std::to_string(prom1) == array[i][0])
                         {
                             tmp  =  space + array[i][1] + result;
                             result = tmp;

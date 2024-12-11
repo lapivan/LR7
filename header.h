@@ -4,13 +4,13 @@
 
 int getValue();
 int getinteger();
-int length(char* a);
+int length(char* a, int lcode1);
 int closest2(int a);
 void delna2(std::string &num);
 void lindectobin(std::string &dec);
 int counter(std::string a);
 char* convert10to2(int a, int counter);
-void converttodop(char* a);
+void converttodop(char* a, int lcode1);
 char* sumdopcode(char* a, char* b, int size);
 void todirectcode(char* a, int len);
 void bintodec(std::string &dop);

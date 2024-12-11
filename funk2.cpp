@@ -2,10 +2,10 @@
 #include <cmath>
 #include <string>
 
-int length(char* a)  //O(n)
+int length(char* a, int lcode1)  //O(n)
 {
     int counter = 0;
-    for(int i = 0; ;i++)
+    for(int i = 0; i< lcode1;i++)
     {
         if(a[i] == '0'|| a[i] == '1')
         {
@@ -111,7 +111,7 @@ char* convert10to2(int a, int counter)
     }
 return b;
 }
-void converttodop(char* a) //O(n)
+void converttodop(char* a, int lcode1) //O(n)
 {
     if(a[0] == '0') //O(1)
     {
@@ -119,7 +119,7 @@ void converttodop(char* a) //O(n)
     }
     else
     {
-        int size = length(a);
+        int size = (int)length(a, lcode1);
         int i = size-1;
         int i1=i;
         while(i!=0) //O(n)
@@ -149,7 +149,16 @@ void converttodop(char* a) //O(n)
                 {
                     a[i1] = '0';
                     i1--;
+                    if(i1 < 0)
+                    {
+                        break;
+                    }
                 }
+                if(i1 < 0)
+                {
+                    a[0] = '1';
+                }
+                else
                 a[i1] = '1';
                 break;
             }
@@ -317,14 +326,14 @@ void todirectcode(char* a, int len)
         return;
     }
 }
-void bintodec(std::string &dop) 
+void bintodec(std::string &dop) //O(n)
 {
     std::string dec = "0"; 
-    for (char bit : dop) 
+    for (char bit : dop) //O(n)
     {
         std::string bufer = dec;
         int perenos = 0;
-        for (int j = bufer.length() - 1; j >= 0; --j) 
+        for (int j = bufer.length() - 1; j >= 0; --j) //O(n) 
         {
             int digit = (bufer[j] - '0') * 2 + perenos;
             bufer[j] = (digit % 10) + '0';
@@ -341,13 +350,13 @@ void bintodec(std::string &dop)
             perenos = 1; 
             std::string buferres = dec;
 
-            for (int j = buferres.length() - 1; j >= 0; --j) 
+            for (int j = buferres.length() - 1; j >= 0; --j) //O(n)
             {
                 int digit = (buferres[j] - '0') + perenos;
                 buferres[j] = (digit % 10) + '0';
                 perenos = digit / 10;
             }
-            while (perenos) 
+            while (perenos) //O(n)
             {
                 buferres.insert(buferres.begin(), (perenos % 10) + '0');
                 perenos /= 10;

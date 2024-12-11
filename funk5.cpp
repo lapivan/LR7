@@ -2,7 +2,7 @@
 #include <cmath>
 #include <string>
 
-int number(int left, int right, int numslaves, int  target)
+int number(int left, int right, int numslaves, int  target) //O(n)
 {
     std::cout << "По итогам первого дня знаем, что отравленная бочка находится в диапазоне от " << left << " до " << right << std::endl;
     int c = 0;
